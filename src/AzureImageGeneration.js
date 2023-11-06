@@ -2,8 +2,8 @@
 
 import axios from 'axios';
 
-const apiKey = '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'; // Reemplaza con tu clave de API de Azure OpenAI
-const endpoint = 'https://api.openai.com/v1/images/generations/'; // Reemplaza con tu punto de conexión de Azure OpenAI
+const apiKey = process.env.AZURE_IMAGEN_GENERATION_API;
+const endpoint = process.env.AZURE_IMAGEN_GENERATION_API;
 
 const generateImage = async () => {
   try {

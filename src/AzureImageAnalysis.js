@@ -2,8 +2,9 @@ import axios from 'axios';
 
 const analyzeImage = async (imageUrl) => {
   try {
-    const apiKey = '9a518b0cf51a465a9e72fea9c87b92f3'; // Reemplaza con tu clave de API de Azure
-    const endpoint = 'https://azurevisionai.cognitiveservices.azure.com/vision/v3.1/analyze/'; // Reemplaza con la URL de tu instancia
+    const apiKey = process.env.AZURE_IMAGEN_ANALISYS_KEY;
+    const endpoint = process.env.AZURE_IMAGEN_ANALISYS_API;
+
 
     const params = {
         visualFeatures: 'Description',
