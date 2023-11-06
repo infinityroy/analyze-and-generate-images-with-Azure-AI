@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './App.css'; 
 import analyzeImage from './AzureImageAnalysis'; // Reemplaza con la ruta correcta
+import generateImage from './AzureImageGeneration'; // Reemplaza con la ruta correcta
 
 
 
 function App() {
   const [imageUrl, setImageUrl] = useState('');
   const [analysisResult, setAnalysisResult] = useState(null);
+  const [generatedImage, setGeneratedImage] = useState('');
+
 
   const handleImageAnalysis = async () => {
     try {
@@ -18,8 +21,13 @@ function App() {
     }
   };
 
-  const handleImageGeneration = () => {
-    // Implement image generation logic here
+  const handleImageGeneration = async () => {
+    const generatedText = await generateImage(); // Llama a la función
+
+    if (generatedText) {
+      setGeneratedImage(generatedText);
+      {generatedImage && <p>Generated Image: {generatedText}</p>}
+    }
   };
 
   const DisplayResults = () => {
@@ -51,5 +59,13 @@ function App() {
     </div>
   );
 }
+
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors({ origin: 'http://localhost:3000' }));
+app.listen(3001, () => {
+  console.log('Servidor en ejecución en el puerto 3001');
+});
 
 export default App;
