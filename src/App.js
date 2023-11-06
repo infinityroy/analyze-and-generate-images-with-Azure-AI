@@ -8,6 +8,7 @@ import generateImage from './AzureImageGeneration'; // Reemplaza con la ruta cor
 function App() {
   const [imageUrl, setImageUrl] = useState('');
   const [analysisResult, setAnalysisResult] = useState(null);
+  const [, setGeneratedImage] = useState('');
 
 
   const handleImageAnalysis = async () => {
