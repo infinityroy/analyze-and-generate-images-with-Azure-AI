@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css'; 
 import analyzeImage from './AzureImageAnalysis'; // Reemplaza con la ruta correcta
 import generateImage from './AzureImageGeneration'; // Reemplaza con la ruta correcta
-import { isConfigured } from './AzureConfig'; // Importa la función isConfigured
 
 
 
@@ -27,7 +26,6 @@ function App() {
 
     if (generatedText) {
       setGeneratedImage(generatedText);
-      {generatedImage && <p>Generated Image: {generatedText}</p>}
     }
   };
 
